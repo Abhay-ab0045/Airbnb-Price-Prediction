@@ -38,7 +38,7 @@ class ModelTrainer:
             'Elasticnet':ElasticNet(),
             'RandomForestRegressor':RandomForestRegressor(random_state=42),
             'GradientBoostingRegressor':GradientBoostingRegressor(random_state=42),
-            'CatBoostRegressor':CatBoostRegressor(random_state=42, verbose=False) 
+            'CatBoostRegressor':CatBoostRegressor(random_state=42, verbose=False, loss_function='RMSE') 
         }
             
             model_report:dict=evaluate_model(X_train,y_train,X_test,y_test,models)
