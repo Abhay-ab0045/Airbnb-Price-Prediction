@@ -29,10 +29,16 @@ def evaluate_model(X_train, y_train, X_test, y_test, models):
             # Predict testing data
             y_test_pred = model.predict(X_test)
 
-            # Calculate R2 score
-            test_model_score = r2_score(y_test, y_test_pred)
+            # Calculate evaluation metrics
+            r2 = r2_score(y_test, y_test_pred)
+            mae = mean_absolute_error(y_test, y_test_pred)
+            rmse = mean_squared_error(y_test, y_test_pred) ** 0.5
 
-            report[model_name] = test_model_score
+            report[model_name] = {
+                "R2 Score": r2,
+                "MAE": mae,
+                "RMSE": rmse
+            }
 
         return report
 
