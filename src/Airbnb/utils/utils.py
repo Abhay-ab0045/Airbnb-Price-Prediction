@@ -43,7 +43,7 @@ def evaluate_model(X_train, y_train, X_test, y_test, models):
         return report
 
     except Exception as e:
-        logging.info("Exception occurred during model training")
+        logging.exception("Exception occurred during model training")
         raise customexception(e, sys)
     
     
